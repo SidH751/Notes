@@ -1,16 +1,16 @@
 const express = require('express');
-
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
-
 const app = express();
+dotenv.config();
 
 const notesRouter = require('./Routers/Notes')
 
 app.use(express.json())
 app.use('/notes', notesRouter);
 
-mongoUrl = "mongodb+srv://SidH:123789456@notesdb.4hrur8x.mongodb.net/?retryWrites=true&w=majority";
+mongoUrl = process.env.MONGO_URL;
 
 mongoose.connect(mongoUrl);
 const con = mongoose.connection;
