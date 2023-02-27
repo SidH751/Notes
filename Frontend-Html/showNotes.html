@@ -9,6 +9,21 @@
 </head>
 
 <body>
+    <div class="notes">
+        <% for(let i=0;i<notes.length;i++) { %>
+            <p>
+                <%= notes[i]['note'] %>
+            </p>
+            <form action="http://localhost:8000/notes/<%= notes[i]['_id'] %>?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Delete" />
+
+            </form>
+            <% } %>
+    </div>
+
+
+
 
 </body>
 

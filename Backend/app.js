@@ -3,6 +3,8 @@ const dotenv = require('dotenv');
 const port = process.env.PORT || 8000;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+const ejs = require('ejs');
 mongoose.set('strictQuery', false);
 const app = express();
 dotenv.config();
@@ -10,6 +12,10 @@ dotenv.config();
 
 const notesRouter = require('./Routers/Notes')
 
+app.set('view engine', 'html');
+app.engine('html', ejs.renderFile);
+
+app.use(methodOverride('_method'));
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/notes', notesRouter);
