@@ -18,7 +18,7 @@ app.engine('html', ejs.renderFile);
 app.use(methodOverride('_method'));
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/notes', notesRouter);
+app.use('/', notesRouter);
 
 mongoUrl = process.env.MONGO_URL;
 

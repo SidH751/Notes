@@ -19,6 +19,15 @@
                 <input type="submit" value="Delete" />
 
             </form>
+
+            <form action="http://localhost:8000/notes/<%= notes[i]['_id'] %>" method="get">
+                <input type="submit" value="Show" />
+
+            </form>
+            <form action="http://localhost:8000/updateNote/<%= notes[i]['_id'] %>" method="get">
+                <input type="submit" value="edit" />
+
+            </form>
             <% } %>
     </div>
 
